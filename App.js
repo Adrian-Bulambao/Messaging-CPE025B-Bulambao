@@ -1,12 +1,35 @@
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View } from 'react-native';
+import React, { useState } from 'react';
 import Status from './components/Status';
+import MessageList from './components/MessageList';
+import { createTextMessage, createImageMessage, createLocationMessage } from './utils/MessageUtils';
 
 export default function App() {
+  // Dummy messages for preview
+  const [messages, setMessages] = useState([
+    createTextMessage("1"),
+    createTextMessage("2"),
+    createTextMessage("3"),
+    createTextMessage("4"),
+    createTextMessage("1"),
+    createTextMessage("2"),
+    createTextMessage("3"),
+    createTextMessage("4"),
+    createTextMessage("1"),
+    createTextMessage("2"),
+    createTextMessage("3"),
+    createTextMessage("4"),
+    createTextMessage("1"),
+    createTextMessage("2"),
+    createTextMessage("3"),
+    createTextMessage("4"),
+
+  ]);
+
   return (
     <View style={styles.container}>
       <Status />
-      <View style={styles.content}></View>
+      <MessageList messages={messages} />
       <View style={styles.inputMethodEditor}></View>
       <View style={styles.toolbar}></View>
     </View>
@@ -15,10 +38,6 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
-  content: {
     flex: 1,
     backgroundColor: '#fff',
   },
@@ -32,5 +51,3 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
 });
-
-
